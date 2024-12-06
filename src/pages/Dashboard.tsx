@@ -64,9 +64,9 @@ const Dashboard: React.FC = () => {
   });
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl mb-4">Your Books</h1>
-      <div className="flex gap-4 mb-4">
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Your Books</h1>
+      <div className="flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
         <input
           type="text"
           placeholder="Search books..."
@@ -74,28 +74,30 @@ const Dashboard: React.FC = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <select
-          className="p-2 border rounded"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
-          <option value="All">All</option>
-          <option value="To-Read">To-Read</option>
-          <option value="Currently Reading">Currently Reading</option>
-          <option value="Finished">Finished</option>
-        </select>
-        <button
-          onClick={() => {
-            setSelectedBook(null);
-            setIsModalOpen(true);
-          }}
-          className="bg-blue-500 text-white py-2 px-4 rounded"
-        >
-          Add Book
-        </button>
+        <div className="flex gap-4 my-4">
+          <select
+            className="p-2 border rounded"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="To-Read">To-Read</option>
+            <option value="Currently Reading">Currently Reading</option>
+            <option value="Finished">Finished</option>
+          </select>
+          <button
+            onClick={() => {
+              setSelectedBook(null);
+              setIsModalOpen(true);
+            }}
+            className="bg-blue-500 text-white py-2 px-4 rounded"
+          >
+            Add Book
+          </button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredBooks.map((book) => (
           <BookCard
             key={book.id}

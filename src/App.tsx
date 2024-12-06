@@ -1,30 +1,51 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import BookDetails from "./pages/BookDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import AuthRoute from "./components/AuthRoute";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
+const App = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <AppLayout />
+      </Router>
+    </AuthProvider>
+  );
+};
 
+const AppLayout: React.FC = () => {
 
-const App: React.FC = () => {
+  const location = useLocation();
+  const { user, loading } = useAuth();
+
+  const hiddenNavbarRoutes = ["/login", "/register"];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user && location.pathname !== "/login" && location.pathname !== "/register") {
+    return <Navigate to="/login" />;
+  }
 
   return (
-    <Router>
-      <Navbar />
+    <>
+      {!hiddenNavbarRoutes.includes(location.pathname) && <Navbar />}
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<AuthRoute><Dashboard /></AuthRoute>} />
-        <Route path="/book/:bookId" element={<AuthRoute><BookDetails /></AuthRoute>} />
-        <Route path="/profile" element={<AuthRoute><Profile /></AuthRoute>} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/book/:bookId" element={<BookDetails />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-    </Router>
+    </>
   );
 };
 

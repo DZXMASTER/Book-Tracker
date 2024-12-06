@@ -13,10 +13,10 @@ interface BookCardProps {
 
 const BookCard: React.FC<BookCardProps> = ({ book, onEdit, onDelete }) => {
   return (
-    <div className="border rounded p-4 shadow">
+    <div className="bg-white shadow-md rounded-md p-4 hover:shadow-lg transition-shadow">
       <h2 className="text-lg font-bold">{book.title}</h2>
       <p className="text-gray-600">by {book.author}</p>
-      <p className="text-sm text-blue-500">{book.status}</p>
+      <p className={`text-sm font-medium ${book.status === "Read" ? "text-green-500" : "text-blue-500"}`}>{book.status}</p>
       <div className="flex justify-end mt-4">
         <button
           onClick={() => onEdit(book.id, book)}

@@ -11,11 +11,12 @@ const Login: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/dashboard");
-    } catch (err) {
-      setError("Invalid email or password. Please try again.");
+    } catch (err: any) {
+      setError("Login Failed: Please check your email and/or your password.");
     }
   };
 
@@ -23,8 +24,8 @@ const Login: React.FC = () => {
     <div className="container mx-auto p-4 max-w-md">
       <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
       {error && <p className="text-red-500 mb-4">{error}</p>}
-      <form onSubmit={handleLogin}>
-        <div className="mb-4">
+      <form className="flex flex-col items-center justify-center max-w-lg mx-auto" onSubmit={handleLogin}>
+        <div className="mb-6 w-full">
           <label htmlFor="email" className="block mb-2 font-medium">
             Email
           </label>
@@ -37,7 +38,7 @@ const Login: React.FC = () => {
             required
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6 w-full">
           <label htmlFor="password" className="block mb-2 font-medium">
             Password
           </label>
