@@ -33,7 +33,9 @@ const NavBar: React.FC = () => {
             />
           </svg>
         </button>
-        <ul className={`sm:flex sm:items-center sm:space-x-4 ${menuOpen ? "block" : "hidden"} mt-4 sm:mt-0`}>
+        <ul className={`sm:flex sm:items-center sm:space-x-4 sm:static sm:flex-row 
+          absolute right-4 top-16 bg-blue-500 shadow-lg rounded-md transition-transform duration-200 
+          transform ${menuOpen ? "scale-100" : "scale-0"} sm:scale-100 origin-top-right`}>
           <li><Link to="/dashboard" className="block px-4 py-2 hover:bg-blue-600 rounded-md">Dashboard</Link></li>
           <li><Link to="/profile" className="block px-4 py-2 hover:bg-blue-600 rounded-md">Profile</Link></li>
           <li>
