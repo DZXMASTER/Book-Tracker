@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+Book Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+About the Project
 
-## Available Scripts
+Book Tracker is a modern and intuitive web application designed to help users:
 
-In the project directory, you can run:
+Register and log in securely using Firebase Authentication.
 
-### `npm start`
+Add, edit, and manage books with custom reading statuses.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Track their reading progress with a categorized book list.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Maintain a personalized profile with stored book data.
 
-### `npm test`
+Stay logged in even after refreshing the page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Current Status
 
-### `npm run build`
+This project has been deployed, with core features implemented and planned improvements in progress.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend: React.js (Next.js) / Tailwind CSS / TypeScript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Backend: Firebase (Authentication, Firestore, Storage)
 
-### `npm run eject`
+Authentication: Firebase Authentication (Email/Password Sign-In)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Real-Time Features: Firestore real-time database updates
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Deployment: Vercel
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Implemented:
 
-## Learn More
+User Authentication: Secure sign-up and login with Firebase Authentication.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Book Management: Users can add, edit, and delete books.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Reading Status Tracking: Categorize books as "Reading," "Completed," or "To Read."
+
+Responsive Design: Optimized for mobile and desktop views.
+
+Secure Data Handling: Firebase security rules ensure data privacy.
+
+Persistent Login: Users stay logged in even after refreshing the page.
+
+Navigation System: Seamless page transitions with React Router.
+
+Planned:
+
+Search & Filter System: Users can search for books and filter by reading status.
+
+Dark Mode: Toggle between light and dark themes.
+
+Progress Tracking: Visual progress bar for books in progress.
+
+Community Features: Users can share reading lists and recommendations.
+
+Roadmap
+
+Phase 1: Core Functionality
+
+Set up authentication and routing.
+
+Implement CRUD operations for books.
+
+Design a responsive UI.
+
+Integrate Firebase for storage and database.
+
+Phase 2: Enhancements
+
+Add real-time updates for book tracking.
+
+Improve UI/UX based on user feedback.
+
+Implement search and filtering functionalities.
+
+Phase 3: Community Features
+
+Enable book sharing and recommendations.
+
+Implement user-generated book reviews and ratings.
+
+Add a social feature to follow other users.
+
+Phase 4: Optimization & Deployment
+
+Conduct thorough testing and bug fixes.
+
+Optimize performance and SEO.
+
+Deploy final version to production.
+
+Deployment
+
+Book Tracker is currently deployed on Vercel: Book Tracker
